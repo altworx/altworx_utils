@@ -10,6 +10,6 @@
   {modules, []},
 
   {maintainers, ["Adam Kovari"]},
-  {licenses, []},
+  {licenses, ["BSD-3-Clause"]},
   {links, [{"Github", "https://github.com/altworx/altworx_utils.git"}]}
  ]}.
