@@ -7,7 +7,11 @@
 %%%-------------------------------------------------------------------
 -module(aw_misc_utils).
 
--export([to_binary/1, to_list/1, binary_join/2, tuple_index_of/2]).
+-export([to_binary/1, to_list/1, binary_join/2, tuple_index_of/2, remove_common_prefix/2]).
+
+-ifdef(TEST).
+-include_lib("eunit/include/eunit.hrl").
+-endif.
 
 %%--------------------------------------------------------------------
 %% @doc Convert item to binary
@@ -67,3 +71,29 @@ tuple_index_of(Item, List) -> tuple_index_of(Item, List, 1).
 tuple_index_of(_, [], _)  -> not_found;
 tuple_index_of(Item, [Item|_], Index) -> Index;
 tuple_index_of(Item, [_|Tl], Index) -> tuple_index_of(Item, Tl, Index+1).
+
+
+%%--------------------------------------------------------------------
+%% @doc Remove common prefix from two lists
+%% @end
+%%--------------------------------------------------------------------
+-spec remove_common_prefix([], []) -> [].
+remove_common_prefix(L1, L2) ->
+    lists:reverse(remove_common_prefix(L1, L2, [])).
+
+remove_common_prefix([_H | T1], [_H | T2], Acc) ->
+    remove_common_prefix(T1, T2, Acc);
+remove_common_prefix([], L2, Acc) ->
+    lists:reverse(L2) ++ Acc;
+remove_common_prefix(L1, _L2, Acc) ->
+    Acc ++ lists:reverse(L1).
+
+-ifdef(TEST).
+
+remove_common_prefix_1_test() ->
+    ?assertEqual("m ko", remove_common_prefix("ada", "adam ko")).
+
+remove_common_prefix_2_test() ->
+    ?assertEqual("m ko", remove_common_prefix("adam ko", "ada")).
+
+-endif.

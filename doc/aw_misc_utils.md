@@ -16,7 +16,7 @@ __Authors:__ Adam Kovari ([`adam.kovari@altworx.com`](mailto:adam.kovari@altworx
 ## Function Index ##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#binary_join-2">binary_join/2</a></td><td>Join binaries with a separator.</td></tr><tr><td valign="top"><a href="#to_binary-1">to_binary/1</a></td><td>Convert item to binary.</td></tr><tr><td valign="top"><a href="#to_list-1">to_list/1</a></td><td>Convert item to list.</td></tr><tr><td valign="top"><a href="#tuple_index_of-2">tuple_index_of/2</a></td><td>Index of an item in a tuple.</td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#binary_join-2">binary_join/2</a></td><td>Join binaries with a separator.</td></tr><tr><td valign="top"><a href="#remove_common_prefix-2">remove_common_prefix/2</a></td><td>Remove common prefix from two lists.</td></tr><tr><td valign="top"><a href="#to_binary-1">to_binary/1</a></td><td>Convert item to binary.</td></tr><tr><td valign="top"><a href="#to_list-1">to_list/1</a></td><td>Convert item to list.</td></tr><tr><td valign="top"><a href="#tuple_index_of-2">tuple_index_of/2</a></td><td>Index of an item in a tuple.</td></tr></table>
 
 
 <a name="functions"></a>
@@ -33,6 +33,17 @@ binary_join(Tail::[binary()], Sep::binary()) -&gt; binary()
 <br />
 
 Join binaries with a separator
+
+<a name="remove_common_prefix-2"></a>
+
+### remove_common_prefix/2 ###
+
+<pre><code>
+remove_common_prefix(L1::[], L2::[]) -&gt; []
+</code></pre>
+<br />
+
+Remove common prefix from two lists
 
 <a name="to_binary-1"></a>
 
