@@ -1,6 +1,6 @@
 {application,altworx_utils,
              [{description,"A collection of common utility functions for various situations."},
-              {vsn,"0.0.3"},
+              {vsn,"0.0.4"},
               {registered,[]},
               {applications,[kernel,stdlib]},
               {env,[]},
