@@ -1,15 +1,11 @@
-{application, altworx_utils,
- [{description, "A collection of common utility functions for various situations."},
-  {vsn, "0.0.2"},
-  {registered, []},
-  {applications,
-   [kernel,
-    stdlib
-   ]},
-  {env,[]},
-  {modules, []},
-
-  {maintainers, ["Adam Kovari"]},
-  {licenses, ["BSD-3-Clause"]},
-  {links, [{"Github", "https://github.com/altworx/altworx_utils.git"}]}
- ]}.
+{application,altworx_utils,
+             [{description,"A collection of common utility functions for various situations."},
+              {vsn,"0.0.3"},
+              {registered,[]},
+              {applications,[kernel,stdlib]},
+              {env,[]},
+              {modules,[]},
+              {maintainers,["Adam Kovari"]},
+              {licenses,["BSD-3-Clause"]},
+              {links,[{"Github",
+                       "https://github.com/altworx/altworx_utils.git"}]}]}.

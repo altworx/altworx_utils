@@ -7,7 +7,7 @@
 %%%-------------------------------------------------------------------
 -module(aw_map_utils).
 
--export([mapget/4, multimap_from_list/1, deep_merge_maps/2]).
+-export([mapget/4, multimap_from_list/1, deep_merge_maps/2, deep_map_to_proplist/1]).
 
 -ifdef(TEST).
 -include_lib("eunit/include/eunit.hrl").
@@ -54,6 +54,17 @@ deep_merge_maps_(M, [{K, #{} = V1} | T]) ->
 deep_merge_maps_(M, [_|T]) -> deep_merge_maps_(M, T).
 
 
+%%--------------------------------------------------------------------
+%% @doc Deep-convert maps into a nested proplist
+%% @end
+%%--------------------------------------------------------------------
+-spec deep_map_to_proplist(map()) -> [{_, _}].
+deep_map_to_proplist(M) when is_map(M) ->
+    [ {K, deep_map_to_proplist(V)} || {K, V} <- maps:to_list(M) ];
+deep_map_to_proplist(E) ->
+    E.
+
+
 %% Private
 multimap_from_list([{K, V} | T], Acc) ->
     case maps:is_key(K, Acc) of
@@ -83,5 +94,8 @@ deep_merge_maps_2_test() ->
 
 deep_merge_maps_3_test() ->
     ?assertEqual(#{out => #{nested => #{cde1 => 1.5, cde2 => 6}}}, deep_merge_maps(#{out => #{nested => #{cde1 => 1.5}}}, #{out => #{nested => #{cde2 => 6}}})).
+
+deep_map_to_proplist_1_test() ->
+    ?assertEqual([{foo, [{bar, [{baz, "a string"}]}]}], deep_map_to_proplist(#{foo => #{bar => #{baz => "a string"}}})).
 
 -endif.
