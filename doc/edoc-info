@@ -1,4 +1,5 @@
 %% encoding: UTF-8
 {application,altworx_utils}.
-{modules,[altworx_utils,aw_date_utils,aw_file_utils,aw_html_utils,
-          aw_map_utils,aw_misc_utils,aw_number_utils]}.
+{modules,[altworx_utils,aw_async_utils,aw_date_utils,aw_file_utils,
+          aw_html_utils,aw_list_utils,aw_map_utils,aw_misc_utils,
+          aw_number_utils]}.
